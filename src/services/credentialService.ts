@@ -3,32 +3,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AccessLog } from '../types/models';
 
 const LOG_STORAGE_KEY = 'access_logs';
+const STORAGE_KEY = 'user_credentials';
 
 export async function getUserCredentials(): Promise<Credential[]> {
-  // In the future: Load from local storage or decentralized store
-  return [
-    {
-      id: 'cred1',
-      deviceId: '1',
-      deviceName: 'Front Door Lock',
-      deviceType: 'lock',
-      issuedBy: 'did:issuer:abc123',
-    },
-    {
-      id: 'cred2',
-      deviceId: '2',
-      deviceName: 'Front Door Lock',
-      deviceType: 'lock',
-      issuedBy: 'did:issuer:abc123',
-    },
-    {
-      id: 'cred3',
-      deviceId: '3',
-      deviceName: 'Garage Camera',
-      deviceType: 'camera',
-      issuedBy: 'did:issuer:def456',
-    },
-  ];
+  const raw = await AsyncStorage.getItem(STORAGE_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+export async function saveUserCredentials(creds: Credential[]) {
+  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(creds));
 }
 
 export async function saveAccessLog(log: AccessLog) {

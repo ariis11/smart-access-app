@@ -5,6 +5,7 @@ export type RootStackParamList = {
   Main: undefined;
   Access: { deviceId: string };
   AccessResult: { status: 'verifying' | 'success' | 'error' };
+  ImportCredential: undefined;
 };
 
 export type TabRoutes = 'Home' | 'History' | 'Profile';

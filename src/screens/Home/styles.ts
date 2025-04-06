@@ -27,6 +27,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
 });
 
 export default styles;

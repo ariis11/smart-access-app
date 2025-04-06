@@ -6,6 +6,7 @@ import ImportIdentity from './src/screens/Identity/ImportIdentityScreen';
 import Access from './src/screens/Access/AccessScreen';
 import AccessResult from './src/screens/Access/AccessResultScreen';
 import BottomTabs from './src/navigation/BottomTabs';
+import ImportCredential from './src/screens/Credential/ImportCredentialScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="ImportIdentity" component={ImportIdentity} />
         <Stack.Screen name="Access" component={Access} />
         <Stack.Screen name="AccessResult" component={AccessResult} />
+        <Stack.Screen name="ImportCredential" component={ImportCredential} />
       </Stack.Navigator>
     </NavigationContainer>
   );
